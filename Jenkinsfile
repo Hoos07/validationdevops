@@ -6,7 +6,7 @@ pipeline {
                     script {
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/hoos07/validationdevops'
                             ]]])
                     }
@@ -15,6 +15,7 @@ pipeline {
         stage('build') {
                 steps {
                     script {
+                        sh "npm install"
                         sh 'ansible-playbook ansible/build.yml -i ansible/inventory/host.yml '
                     }
                 }
