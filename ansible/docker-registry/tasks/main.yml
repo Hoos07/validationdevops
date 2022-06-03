@@ -1,0 +1,8 @@
+---
+# tasks file for docker-registry
+- name: Push to docker hub
+  community.docker.docker_image:
+    name: devops
+    repository: hoos07/validation:latest
+    source: local
+    push: yes
