@@ -6,7 +6,7 @@ pipeline {
                     script {
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/hoos07/validationdevops'
                             ]]])
                     }
