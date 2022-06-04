@@ -6,7 +6,7 @@ pipeline {
                     script {
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/hoos07/validationdevops'
                             ]]])
                     }
@@ -27,6 +27,7 @@ pipeline {
         }
         stage ('push to docker registry') {
                 steps {
+                    sh 'ansible-galaxy collection install community.docker'
                     sh 'ansible-playbook ansible/docker-registry.yml -i ansible/inventory/host.yml'
                 }
         }
